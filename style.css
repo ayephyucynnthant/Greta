@@ -1,0 +1,383 @@
+@charset "UTF-8";
+/* Final style.css for Birthday Project */
+
+    /* --- 1. FONT LOADING (CRITICAL: CHECK PATHS) --- */
+    @font-face {
+      font-family: "Love";
+      src: url('love_2/Love2-Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Fragment Core';
+      src: url('fragment_core/FragmentCore-Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'NoteDry';
+      src: url('note_dry/NoteDry-Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Long_Short';
+      src: url('long_short/LongShort-Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Darling';
+      src: url('darling/Darling-Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* --- 2. GLOBAL & LAYOUT STYLES --- */
+    :root {
+      --bg: #e2beff; /* Lavender background */
+      --text: #00294b; /* Dark text */
+      --accent: #ff6666; /* Red/Pink accent */
+      --muted-blue: #0066cc; /* Link/secondary text blue */
+      --teal: #008080; /* Teal for 'Go To Wish' button */
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Fragment Core', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .bd-page-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Centers content vertically */
+      min-height: 90vh;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+
+    /* Shared style for content wrapper on both pages (3-column layout) */
+    .page-container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      gap: 20px;
+    }
+
+    /* Specific adjustment for Page 1 wrapper */
+    #page-1-content-wrapper {
+        max-width: 1400px; /* Wider to accommodate side images */
+        width: 100%;
+        padding: 0 20px; 
+    }
+
+    .image-column {
+      width: 250px;
+      padding: 10px;
+    }
+
+    .image-column img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      display: block;
+    }
+    
+    .main-content {
+      flex: 1;
+      max-width: 600px;
+      margin: 0 40px;
+      text-align: justify;
+    }
+
+    /* --- 3. PAGE 1: CAKE, CANDLE, AND AUDIO STYLES --- */
+    
+    #page-1-intro {
+        position: relative; 
+    }
+    
+    #page-1-intro h1 {
+      font-family: 'NoteDry', 'NoteDry', serif;
+      color: #190072;
+      font-size: 48px;
+      text-align: center;
+      margin: 0 0 40px 0; /* Increased margin for better spacing */
+    }
+    
+    /* Center the Cake/Button/Audio block within its new column */
+    .page-1-main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center; 
+        text-align: center; /* Ensures text inside is centered too */
+        max-width: 600px;
+        margin: 0 20px;
+    }
+
+    /* Button Row Styling */
+    #button-row {
+        display: flex;
+        gap: 15px; /* Space between the two buttons */
+        margin-top: 15px;
+    }
+
+    /* Blow Out Button (Red/Accent) */
+    #blow-out-button {
+        padding: 12px 25px;
+        font-size: 18px;
+        font-family: 'Fragment Core', sans-serif;
+        color: white; 
+        background-color: var(--accent); 
+        border: none;
+        border-radius: 25px; 
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.2s, transform 0.2s;
+    }
+
+    #blow-out-button:hover {
+        background-color: #ff4d4d;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Go To Wish Button (Teal/Secondary) */
+    #go-to-wish-button {
+        padding: 12px 25px;
+        font-size: 18px;
+        font-family: 'Fragment Core', sans-serif;
+        color: white;
+        background-color: var(--teal); 
+        border: none;
+        border-radius: 25px; 
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.2s, transform 0.2s;
+    }
+
+    #go-to-wish-button:hover {
+        background-color: #006666; 
+        transform: translateY(-2px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+
+
+    /* Audio Player Styling (Distance from button row) */
+    #audio-player-container {
+        margin-top: 40px; 
+        margin-bottom: 20px; 
+        text-align: center;
+    }
+    #birthday-song {
+        width: 300px; 
+    }
+
+    /* Cake and Candle Positioning - REFINED (YOUR NEW CODE) */
+    #cake-area {
+      position: relative;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      max-width: 400px;
+      padding-top: 20px; /* gives some space for candles */
+    }
+
+    #cake-base-img {
+      width: 250px;
+      height: auto;
+      position: relative;
+      z-index: 5;
+      margin-top: 0;      /* remove extra gap */
+      display: block;
+    }
+
+    /* Candle containers positioned relative to the cake-area */
+    .candle-container {
+      position: absolute;
+      bottom: 160px;          /* <<— Corrected to put candles on the cake */
+      z-index: 10;
+      transform: translateX(-50%);
+    }
+
+    #candle-1-pos { left: 48%; }
+    #candle-2-pos { left: 56%; }
+
+
+    .candle {
+      width: 15px;
+      height: 50px;
+      background: repeating-linear-gradient(45deg, #f08080, #f08080 10px, #ffffff 10px, #ffffff 20px);
+      border-radius: 5px;
+      position: relative;
+      box-shadow: inset 0 -2px 4px rgba(0,0,0,0.1);
+    }
+
+    .flame {
+      width: 12px;
+      height: 20px;
+      background: radial-gradient(ellipse at 50% 30%, #fff2b8 0%, #ffb347 40%, #ff7a00 70%);
+      border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+      position: absolute;
+      top: -16px; /* Adjusted to sit on the candle */
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px 2px rgba(255,195,77,0.6);
+      animation: flicker 0.6s infinite alternate;
+      /* Ensures the smooth blow out effect */
+      transition: opacity 0.5s; 
+    }
+
+    @keyframes flicker {
+      0% { transform: translateX(-50%) scale(1); opacity: 1; }
+      50% { transform: translateX(-50%) scale(1.05); opacity: 0.8; box-shadow: 0 0 15px 3px rgba(255,195,77,0.8); }
+      100% { transform: translateX(-50%) scale(1); opacity: 1; }
+    }
+    
+    /* Dedicated class for extinguished flames (Overrides default states) */
+    .flame-extinguished {
+        opacity: 0 !important;
+        animation: none !important;
+    }
+
+    /* --- 4. PAGE 2: WISH PAGE STYLES --- */
+    .page-2-wish h1 {
+      font-family: 'Love', serif;
+      color: var(--accent);
+      font-size: 36px;
+      text-align: center;
+      animation: floating 3s ease-in-out infinite;
+      position: relative;
+      margin: 0 0 10px 0;
+    }
+
+    @keyframes floating {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(15px); }
+      100% { transform: translateY(0); }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: -10px;
+      animation: confetti 3s ease-in-out infinite;
+    }
+
+    .confetti:nth-child(2n) { background-color: #ff8fff; }
+    .confetti:nth-child(3n) { background-color: #5e0010; }
+    .confetti:nth-child(4n) { background-color: #ffea7f; }
+
+    @keyframes confetti {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100px) rotate(360deg); opacity: 0; }
+    }
+
+    .page-2-wish p {
+      font-family: 'Fragment Core', sans-serif;
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--muted-blue);
+      text-align: justify;
+      margin: 0 auto 20px;
+      max-width: 700px;
+    }
+
+    .nav-button-container {
+      display: flex;
+      justify-content: center; 
+      width: 100%;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      gap: 12px;
+    }
+
+    .nav-button {
+      padding: 12px 25px;
+      font-size: 16px;
+      font-family: 'Fragment Core', sans-serif;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.2s;
+      background-color: var(--teal);
+    }
+
+    .nav-button:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+
+    .balloon-button {
+      display: block;
+      margin: 20px auto;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #ff0000;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .balloon-button:hover { transform: scale(1.05); }
+
+    .balloon {
+      position: fixed;
+      width: 30px;
+      height: 40px;
+      background: #ff6666;
+      border-radius: 50%;
+      animation: floatUp 4s linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+    }
+
+    /* --- 5. RESPONSIVE TWEAKS --- */
+    @media (max-width: 900px) {
+      .page-container { flex-direction: column; padding: 0 10px; }
+      .image-column { 
+        width: 100%; 
+        order: 2; /* Puts side images below the main content on small screens */
+        display: flex; /* Makes the side images line up horizontally */
+        justify-content: center;
+        gap: 10px;
+      }
+      .image-column img { 
+        width: 45%; /* Shrink images to fit side-by-side */
+      }
+      .main-content { margin: 20px 0; }
+      #page-1-intro h1 { font-size: 36px; }
+    }
